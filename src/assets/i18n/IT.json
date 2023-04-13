@@ -1,0 +1,11 @@
+{
+    "LANGUAGES": {
+        "IT": "Italiano",
+        "EN": "Inglese"
+    },
+    "TOP-BAR": {
+        "HOME": "Home",
+        "LOGOUT": "Disconnettiti",
+        "LANGUAGE": "Lingua"
+    }
+}
