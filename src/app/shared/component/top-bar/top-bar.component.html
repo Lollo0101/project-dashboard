@@ -23,16 +23,19 @@
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li>
 							<a class="dropdown-item" *ngFor="let lang of languages"
-								(click)="changeLang(lang)">{{ 'LANGUAGES.' + lang | translate }}
+								(click)="changeLang(lang)">{{ 'LANGUAGES.' + (lang | uppercase) | translate }}
 							</a>
 						</li>
 					</ul>
 				</li>
 			</ul>
 
-			<div>
-				<div class="nav-item">
-					<button class="btn btn-light" routerLink="login">
+			<div class="d-flex" *ngIf="user$ | async as user">
+				<div class="mx-3">
+					{{ 'TOP-BAR.WELCOME' | translate }}, {{ user.email }}
+				</div>
+				<div>
+					<button class="btn btn-light" (click)="logout()">
 						<i class="fa-solid fa-right-from-bracket"></i>{{ 'TOP-BAR.LOGOUT' | translate }} 
 					</button>
 				</div>

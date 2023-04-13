@@ -1,18 +1,22 @@
 <main class="main">
     <div class="container">
-
-        <form>
+        <span *ngIf="user$ | async as user">{{ user.email }}</span>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="email" class="form-label" translate="LOGIN.EMAIL"></label>
-                <input class="form-control" type="email" placeholder="{{ 'LOGIN.EMAIL' | translate }}"/>
+                <input class="form-control" type="email" formControlName="email"
+                        placeholder="{{ 'LOGIN.EMAIL' | translate }}"/>
             </div>
 
             <div class="form-group">
                 <label for="password" class="form-label" translate="LOGIN.PASSWORD"></label>
-                <input class="form-control" type="password" placeholder="{{ 'LOGIN.PASSWORD' | translate }}"/>
+                <input class="form-control" type="password" formControlName="password"
+                        placeholder="{{ 'LOGIN.PASSWORD' | translate }}"/>
             </div>
 
-            <button type="submit" class="btn btn-success" translate="LOGIN.LOGIN"></button>
+            <div class="form-group d-flex justify-content-around">
+                <button type="submit" class="btn btn-success" translate="LOGIN.LOGIN"></button>
+            </div>
         </form>
     </div>
 </main>

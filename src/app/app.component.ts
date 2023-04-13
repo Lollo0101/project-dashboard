@@ -10,7 +10,7 @@ export class AppComponent {
   public title = 'Project Dashboard';
 
   public constructor(private translate: TranslateService) {
-    translate.setDefaultLang('IT');
-    translate.use('IT');
+    translate.setDefaultLang('it');
+    translate.use('it');
   }
 }

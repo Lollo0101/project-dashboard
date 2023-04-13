@@ -1,0 +1,30 @@
+<div class="container">
+    <dx-data-grid class="m-3"
+        id="gridContainer"
+        [dataSource]="resources$ | async"
+        keyExpr="id"
+        [columns]="['name', 'surname']"
+        [showBorders]="true">
+
+        <dxi-column
+            dataField="name">
+        </dxi-column>
+
+        <dxi-column
+            dataField="surname">
+
+        </dxi-column>
+
+        <dxi-column
+            dataField="address"
+            cellTemplate="address">
+        </dxi-column>
+
+        <div *dxTemplate="let resource of 'address'">
+            <p class="employee-notes">
+                {{ resource.data.street + ", " + resource.data.city + ", " + resource.data.CAP }}
+            </p>
+        </div>
+    </dx-data-grid>
+
+</div>

@@ -6,6 +6,16 @@
     "TOP-BAR": {
         "HOME": "Home",
         "LOGOUT": "Disconnettiti",
-        "LANGUAGE": "Lingua"
+        "LANGUAGE": "Lingua",
+        "WELCOME": "Benvenuto"
+    },
+    "LOGIN": {
+        "EMAIL": "E-mail",
+        "PASSWORD": "Password",
+        "LOGIN": "Login"
+    },
+    "DASHBOARD": {
+        "RESOURCES": "Risorse",
+        "PROJECTS": "Progetti"
     }
 }

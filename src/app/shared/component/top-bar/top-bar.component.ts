@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { UserStateService } from 'src/app/user-state.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,11 +10,20 @@ import { TranslateService } from '@ngx-translate/core';
 export class TopBarComponent {
   @Input() public title!: string;
 
-  public languages = ['IT', 'EN'];
+  public languages = ['it', 'en'];
 
-  public constructor(private translate: TranslateService) {}
+  public user$ = this.userStateService.selectUser();
+
+  public constructor(
+    private translate: TranslateService,
+    private userStateService: UserStateService
+    ) {}
 
   public changeLang(lang: string): void {
-    this.translate.use(lang).subscribe();
+    this.translate.use(lang.toLowerCase()).subscribe();
+  }
+
+  public logout(): void {
+    this.userStateService.dispatchLogout();
   }
 }
