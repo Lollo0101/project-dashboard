@@ -4,9 +4,7 @@ import { BaseStateService } from 'src/app/base.state-service';
 import { Resource } from 'src/app/shared/models/resource';
 import { ResourceService } from '../../resource.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ResourcesStateService extends BaseStateService<ResourcesState> {
   constructor(private resourceService: ResourceService) {
     super();

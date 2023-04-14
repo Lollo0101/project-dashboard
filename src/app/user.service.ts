@@ -7,7 +7,9 @@ import { USERS } from './shared/mocks/users';
 @Injectable({
   providedIn: 'root'
 })
-export class UserDBService {
+export class UserService {
+  public static readonly USER = "user";
+
   private users: User[] = [];
 
   public constructor() {
@@ -26,5 +28,9 @@ export class UserDBService {
     }
 
     return of(user);
+  }
+
+  public login(user: User): Observable<User | undefined> {
+    return this.getUser(user.email);
   }
 }

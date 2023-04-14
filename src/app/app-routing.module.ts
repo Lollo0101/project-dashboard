@@ -1,14 +1,22 @@
 import { NgModule, inject } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of, tap } from 'rxjs';
 import { UserStateService } from './user-state.service';
 
 export const canActivate = (): Observable<boolean> => {
   const router = inject(Router);
   const filter = inject(UserStateService);
 
-  return of(true);
-  //return filter.selectIsLogged();
+  filter.dispatchIsLogged();
+
+  return filter.selectUser().pipe(
+    map(user => !!user),
+    tap(res => {
+      if(!res) {
+        router.navigate(['login']);
+      }
+    })
+  );
 }
 
 const routes: Routes = [

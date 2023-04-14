@@ -18,7 +18,7 @@ export class ResourceService {
   }
 
   public getResource(id: number): Observable<Resource | undefined> {
-    return of(this.resources.find(res => res.id = id));
+    return of(this.resources.find(res => res.id === id));
   }
 
   public addResource(resource: Resource): Observable<number> {

@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 import { ResourcesStateService } from './resources-state.service';
 import { Router } from '@angular/router';
-import { Resource } from 'src/app/shared/models/resource';
 
 @Component({
   selector: 'app-resources',
   templateUrl: './resources.component.html',
-  styleUrls: ['./resources.component.scss']
+  styleUrls: ['./resources.component.scss'],
+  providers: [ResourcesStateService]
 })
 export class ResourcesComponent implements OnInit {
   public resources$ = this.resourcesStateService.selectResources();
@@ -20,11 +20,11 @@ export class ResourcesComponent implements OnInit {
     }
 
   public selectResource(event:  any): void {
-    event.component.byKey(event.currentSelectedRowKeys[0]).done((resource: Resource) => {
-      if(resource) {
-        this.router.navigate(['/home/resource-details/' + resource.id]);
-      }
-    })
+    const resource = event.selectedRowsData[0];
+
+    if(resource) {
+      this.router.navigate(['home', 'resource-details', resource.id]);
+    }
   }
 
   public deleteResource(event: any): void {

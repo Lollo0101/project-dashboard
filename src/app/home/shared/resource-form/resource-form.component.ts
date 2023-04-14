@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
@@ -14,7 +14,10 @@ export class ResourceFormComponent {
   public readonly MIN = 10000;
   public readonly MAX = 99999;
 
-  @Input() public resource?: Resource;
+  @Input() public resource?: Resource | undefined;
+  
+  @Output() public resourceUpdated = new EventEmitter<Resource>();
+  @Output() public resourceAdded = new EventEmitter<Resource>();
   
   public isEditable$ = this.resourceStateService.selectIsEditable();
 
@@ -55,14 +58,6 @@ export class ResourceFormComponent {
     private resourceStateService: ResourceStateService,
     private location: Location,
   ) {}
-
-  public updateResource(resource: Resource): void {
-    this.resourceStateService.dispatchUpdateResource(resource);
-  }
-
-  public addResource(resource: Resource): void {
-    this.resourceStateService.dispatchAddResource(resource);
-  }
 
   public enableEdit(): void {
     this.changeEditState(true);
@@ -109,5 +104,13 @@ export class ResourceFormComponent {
     } else {
       this.resourceForm.disable();
     }
+  }
+
+  private updateResource(resource: Resource): void {
+    this.resourceUpdated.emit(resource);
+  }
+
+  private addResource(resource: Resource): void {
+    this.resourceAdded.emit(resource);
   }
 }

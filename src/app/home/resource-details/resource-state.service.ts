@@ -4,9 +4,7 @@ import { BaseStateService } from 'src/app/base.state-service';
 import { Resource } from 'src/app/shared/models/resource';
 import { ResourceService } from '../../resource.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ResourceStateService extends BaseStateService<ResourceState> {
   constructor(private resourceService: ResourceService) {
     super();
@@ -29,6 +27,7 @@ export class ResourceStateService extends BaseStateService<ResourceState> {
   }
 
   public dispatchGetResource(id: number): void {
+    console.log(id)
       this.resourceService.getResource(id).subscribe(res => {
         this.updateState(state => ({
           ...state,

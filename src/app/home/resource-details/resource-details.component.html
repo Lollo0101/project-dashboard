@@ -1,5 +1,5 @@
-<div class="container" *ngIf="resource$ | async as resource">
-    <div class="row mt-3">
+<div class="container" *ngLet="resource$ | async as resource">
+    <div class="row mt-3" *ngIf="resource">
         <div class="col-1">
             <i class="fa-solid fa-arrow-left" (click)="goBack()"></i>
         </div>
@@ -8,5 +8,5 @@
         </div>
     </div>
 
-    <app-resource-form [resource]="resource"></app-resource-form>
+    <app-resource-form [resource]="resource" (resourceUpdated)="updateResource($event)" (resourceAdded)="addResource($event)"></app-resource-form>
 </div>

@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { BaseStateService } from './base.state-service';
-import { UserValidationService } from './user-validation.service';
+import { UserService } from './user.service';
 import { User } from './shared/models/user';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserStateService extends BaseStateService<UserState> {
   public constructor(
-    private userValidationService: UserValidationService,
+    private userValidationService: UserService,
     private router: Router
   ) {
     super();
@@ -26,7 +26,7 @@ export class UserStateService extends BaseStateService<UserState> {
 
   public dispatchIsLogged(): void {
     // get the log status from the local storage and update the state
-    const user = localStorage.getItem(UserValidationService.USER);
+    const user = localStorage.getItem(UserService.USER);
 
     if(user) {
       this.updateState(state => ({
@@ -37,17 +37,15 @@ export class UserStateService extends BaseStateService<UserState> {
   }
 
   public dispatchLogout(): void {
-    // manage errors if the logout goes wrong
-    this.userValidationService.logout().subscribe();
+    localStorage.clear();
 
     this.dispatchReset();
   }
 
   public dispatchLogin(user: User): void {
-    // manage errors if the login goes wrong
     this.userValidationService.login(user).subscribe({
       next: res => {
-        localStorage.setItem(UserValidationService.USER, JSON.stringify(res));
+        localStorage.setItem(UserService.USER, JSON.stringify(res));
 
         this.updateState(state => ({
           ...state,
