@@ -3,8 +3,8 @@
         id="gridContainer"
         [dataSource]="resources$ | async"
         keyExpr="id"
-        [columns]="['name', 'surname']"
-        [showBorders]="true">
+        [showBorders]="true"
+        (onSelectionChanged)="selectResource($event)">
 
         <dxi-column
             dataField="name">
@@ -25,6 +25,8 @@
                 {{ resource.data.street + ", " + resource.data.city + ", " + resource.data.CAP }}
             </p>
         </div>
+
+        <dxo-selection mode="single"></dxo-selection>
     </dx-data-grid>
 
 </div>

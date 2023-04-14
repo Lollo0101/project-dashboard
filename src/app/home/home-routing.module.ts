@@ -10,6 +10,7 @@ const routes: Routes = [
       { path: '', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
       { path: 'resources', loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule) },
       { path: 'projects', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule) },
+      { path: 'resource-details/:id', loadChildren: () => import('./resource-details/resource-details.module').then(m => m.ResourceDetailsModule) },
       { path: '**', redirectTo: '', pathMatch: 'full' }
     ]
   },
