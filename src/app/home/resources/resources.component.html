@@ -23,7 +23,7 @@
 
         <div *dxTemplate="let resource of 'address'">
             <p class="employee-notes">
-                {{ resource.data.street + ", " + resource.data.city + ", " + resource.data.CAP }}
+                {{ resource.data.address.street + ", " + resource.data.address.city + ", " + resource.data.address.CAP }}
             </p>
         </div>
 
