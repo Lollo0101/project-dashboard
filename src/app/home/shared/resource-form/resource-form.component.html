@@ -71,9 +71,9 @@
                 *ngIf="!isEditable" translate="FORM.MODIFY"></button>
 
             <button class="btn btn-success" type="submit" *ngIf="isEditable && resource"
-                translate="FORM.UPDATE"></button>
+                translate="FORM.UPDATE" [disabled]="resourceForm.invalid"></button>
             <button class="btn btn-success" type="submit" *ngIf="isEditable && !resource"
-                translate="FORM.ADD"></button>
+                translate="FORM.ADD" [disabled]="resourceForm.invalid"></button>
 
             <button class="btn btn-danger" type="button" (click)="disableEdit()"
                 *ngIf="isEditable" translate="FORM.CANCEL"></button>

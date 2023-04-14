@@ -4,6 +4,7 @@
         [dataSource]="resources$ | async"
         keyExpr="id"
         [showBorders]="true"
+        (onRowRemoving)="deleteResource($event)"
         (onSelectionChanged)="selectResource($event)">
 
         <dxi-column
@@ -25,6 +26,21 @@
                 {{ resource.data.street + ", " + resource.data.city + ", " + resource.data.CAP }}
             </p>
         </div>
+
+        <dxo-toolbar>
+            <dxi-item>
+                <dx-button
+                    routerLink="/home/add-resource">
+                    <i class="fa-solid fa-add"></i>{{ 'FORM.ADD' | translate }} {{ 'RESOURCE.RESOURCE' | translate }}
+                </dx-button>
+            </dxi-item>
+        </dxo-toolbar>
+
+        <dxo-editing
+            mode="popup"
+            [allowDeleting]="true"
+            [useIcons]="true">
+        </dxo-editing>
 
         <dxo-selection mode="single"></dxo-selection>
     </dx-data-grid>

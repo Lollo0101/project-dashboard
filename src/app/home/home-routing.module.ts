@@ -11,10 +11,10 @@ const routes: Routes = [
       { path: 'resources', loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule) },
       { path: 'projects', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule) },
       { path: 'resource-details/:id', loadChildren: () => import('./resource-details/resource-details.module').then(m => m.ResourceDetailsModule) },
+      { path: 'add-resource', loadChildren: () => import('./add-resource/add-resource.module').then(m => m.AddResourceModule) },
       { path: '**', redirectTo: '', pathMatch: 'full' }
     ]
   },
-  { path: 'form', loadChildren: () => import('./shared/resource-form/resource-form.module').then(m => m.ResourceFormModule) },
 ];
 
 @NgModule({

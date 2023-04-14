@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { UserStateService } from 'src/app/user-state.service';
 
@@ -16,7 +17,8 @@ export class TopBarComponent {
 
   public constructor(
     private translate: TranslateService,
-    private userStateService: UserStateService
+    private userStateService: UserStateService,
+    private router: Router
     ) {}
 
   public changeLang(lang: string): void {
@@ -25,5 +27,6 @@ export class TopBarComponent {
 
   public logout(): void {
     this.userStateService.dispatchLogout();
+    this.router.navigate(['login']);
   }
 }

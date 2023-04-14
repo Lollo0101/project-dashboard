@@ -27,6 +27,11 @@ export class ResourcesComponent implements OnInit {
     })
   }
 
+  public deleteResource(event: any): void {
+    console.log(event.data);
+    this.resourcesStateService.dispatchDeleteResource(event.data);
+  }
+
   public ngOnInit(): void {
     this.resourcesStateService.dispatchGetResources();
   }

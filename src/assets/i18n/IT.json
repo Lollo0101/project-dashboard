@@ -3,7 +3,12 @@
         "IT": "Italiano",
         "EN": "Inglese"
     },
+    "USER": {
+        "EMAIL": "E-mail",
+        "PASSWORD": "Password"
+    },
     "RESOURCE": {
+        "RESOURCE": "Risorsa",
         "NAME": "Nome",
         "SURNAME": "Cognome",
         "STREET": "Via",
@@ -17,8 +22,6 @@
         "WELCOME": "Benvenuto"
     },
     "LOGIN": {
-        "EMAIL": "E-mail",
-        "PASSWORD": "Password",
         "LOGIN": "Login"
     },
     "DASHBOARD": {
