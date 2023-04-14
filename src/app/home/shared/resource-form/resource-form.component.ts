@@ -31,22 +31,24 @@ export class ResourceFormComponent {
       validators: [Validators.required],
       nonNullable: true
     }),
-    street: new FormControl<string>('', {
-      validators: [Validators.required],
-      nonNullable: true
-    }),
-    city: new FormControl<string>('', {
-      validators: [Validators.required],
-      nonNullable: true
-    }),
-    CAP: new FormControl<number>(0, {
-      validators: [
-        Validators.required,
-        Validators.min(this.MIN),
-        Validators.max(this.MAX),
-      ],
-      nonNullable: true
-    }),
+    address: new FormGroup({
+      street: new FormControl<string>('', {
+        validators: [Validators.required],
+        nonNullable: true
+      }),
+      city: new FormControl<string>('', {
+        validators: [Validators.required],
+        nonNullable: true
+      }),
+      CAP: new FormControl<number>(0, {
+        validators: [
+          Validators.required,
+          Validators.min(this.MIN),
+          Validators.max(this.MAX),
+        ],
+        nonNullable: true
+      })
+    })
   })
 
   public constructor(
