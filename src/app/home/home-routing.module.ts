@@ -14,6 +14,7 @@ const routes: Routes = [
       { path: '**', redirectTo: '', pathMatch: 'full' }
     ]
   },
+  { path: 'form', loadChildren: () => import('./shared/resource-form/resource-form.module').then(m => m.ResourceFormModule) },
 ];
 
 @NgModule({

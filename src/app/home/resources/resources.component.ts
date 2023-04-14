@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ResourceStateService } from './resource-state.service';
+import { ResourcesStateService } from './resources-state.service';
 import { Router } from '@angular/router';
 import { Resource } from 'src/app/shared/models/resource';
 
@@ -10,10 +10,10 @@ import { Resource } from 'src/app/shared/models/resource';
   styleUrls: ['./resources.component.scss']
 })
 export class ResourcesComponent implements OnInit {
-  public resources$ = this.resourceStateService.selectResources();
+  public resources$ = this.resourcesStateService.selectResources();
 
   public constructor(
-    private resourceStateService: ResourceStateService,
+    private resourcesStateService: ResourcesStateService,
     private router: Router
     ) {
       this.selectResource = this.selectResource.bind(this);
@@ -22,13 +22,12 @@ export class ResourcesComponent implements OnInit {
   public selectResource(event:  any): void {
     event.component.byKey(event.currentSelectedRowKeys[0]).done((resource: Resource) => {
       if(resource) {
-        //console.log(this.router.url);
         this.router.navigate(['/home/resource-details/' + resource.id]);
       }
     })
   }
 
   public ngOnInit(): void {
-    this.resourceStateService.dispatchGetResources();
+    this.resourcesStateService.dispatchGetResources();
   }
 }

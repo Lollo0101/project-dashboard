@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
+
 import { BaseStateService } from 'src/app/base.state-service';
 import { Resource } from 'src/app/shared/models/resource';
-import { ResourceService } from './resource.service';
+import { ResourceService } from '../../resource.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ResourceStateService extends BaseStateService<ResourceState> {
+export class ResourcesStateService extends BaseStateService<ResourcesState> {
   constructor(private resourceService: ResourceService) {
     super();
   }
   
-  protected override get initalState(): ResourceState {
+  protected override get initalState(): ResourcesState {
     return {
       resources: []
     };
@@ -32,14 +33,6 @@ export class ResourceStateService extends BaseStateService<ResourceState> {
     });
   }
 
-  public dispatchAddResource(resource: Resource): void {
-    this.resourceService.addResource(resource);
-  }
-
-  public dispatchUpdateResource(resource: Resource): void {
-    this.resourceService.updateResource(resource);
-  }
-
   public dispatchDeleteResource(resource: Resource): void {
     this.resourceService.deleteResource(resource);
   }
@@ -49,6 +42,6 @@ export class ResourceStateService extends BaseStateService<ResourceState> {
   public selectResources = () => this.select(state => state.resources);
 }
 
-interface ResourceState {
+interface ResourcesState {
   resources: Resource[]
 }

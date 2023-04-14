@@ -1,1 +1,12 @@
-<p>resource-details works!</p>
+<div class="container" *ngIf="resource$ | async as resource">
+    <div class="row mt-3">
+        <div class="col-1">
+            <i class="fa-solid fa-arrow-left" (click)="goBack()"></i>
+        </div>
+        <div class="col-auto">
+            <h3>{{ resource.name + " " + resource.surname }} {{ 'DETAILS.DETAILS' | translate }}</h3>
+        </div>
+    </div>
+
+    <app-resource-form [resource]="resource"></app-resource-form>
+</div>

@@ -3,6 +3,13 @@
         "IT": "Italian",
         "EN": "English"
     },
+    "RESOURCE": {
+        "NAME": "Name",
+        "SURNAME": "Surname",
+        "STREET": "Street",
+        "CITY": "City",
+        "CAP": "Zip code"
+    },
     "TOP-BAR": {
         "HOME": "Home",
         "LOGOUT": "Logout",
@@ -17,5 +24,17 @@
     "DASHBOARD": {
         "RESOURCES": "Resources",
         "PROJECTS": "Projects"
+    },
+    "DETAILS": {
+        "DETAILS": "details"
+    },
+    "FORM": {
+        "MODIFY": "Modify",
+        "UPDATE": "Update",
+        "ADD": "Add",
+        "CANCEL": "Cancel",
+        "BACK": "Go back",
+        "REQUIRED": "is required",
+        "RANGE": "must be between {{min}} and {{max}}"
     }
 }

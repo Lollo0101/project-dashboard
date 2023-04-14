@@ -1,0 +1,84 @@
+<div class="container">
+    <form [formGroup]="resourceForm" *ngLet="isEditable$ | async as isEditable"
+        (ngSubmit)="onSubmit()">
+        <input type="hidden" name="id" formControlName="id"/>
+
+        <div class="form-group">
+            <label for="name" translate="RESOURCE.NAME"></label>
+            <input class="form-control" formControlName="name"
+                    placeholder="{{ 'RESOURCE.NAME' | translate }}"/>
+            <div class="alert alert-danger"
+                *ngIf="resourceForm.controls.name.invalid && (resourceForm.controls.name.dirty || resourceForm.controls.name.touched)">
+                <div *ngIf="resourceForm.controls.name.errors?.['required']">
+                    {{ 'RESOURCE.NAME' | translate }} {{ 'FORM.REQUIRED' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name" translate="RESOURCE.SURNAME"></label>
+            <input class="form-control" formControlName="surname"
+                placeholder="{{ 'RESOURCE.SURNAME' | translate }}"/>
+            <div class="alert alert-danger"
+                *ngIf="resourceForm.controls.surname.invalid && (resourceForm.controls.surname.dirty || resourceForm.controls.surname.touched)">
+                <div *ngIf="resourceForm.controls.surname.errors?.['required']">
+                    {{ 'RESOURCE.SURNAME' | translate }} {{ 'FORM.REQUIRED' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name" translate="RESOURCE.STREET"></label>
+            <input class="form-control" formControlName="street"
+                placeholder="{{ 'RESOURCE.STREET' | translate }}"/>
+            <div class="alert alert-danger"
+                *ngIf="resourceForm.controls.street.invalid && (resourceForm.controls.street.dirty || resourceForm.controls.street.touched)">
+                <div *ngIf="resourceForm.controls.street.errors?.['required']">
+                    {{ 'RESOURCE.STREET' | translate }} {{ 'FORM.REQUIRED' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name" translate="RESOURCE.CITY"></label>
+            <input class="form-control" formControlName="city"
+                placeholder="{{ 'RESOURCE.CITY' | translate }}"/>
+            <div class="alert alert-danger"
+                *ngIf="resourceForm.controls.city.invalid && (resourceForm.controls.city.dirty || resourceForm.controls.city.touched)">
+                <div *ngIf="resourceForm.controls.city.errors?.['required']">
+                    {{ 'RESOURCE.CITY' | translate }} {{ 'FORM.REQUIRED' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name" translate="RESOURCE.CAP"></label>
+            <input class="form-control" type="number" formControlName="CAP"
+                placeholder="{{ 'RESOURCE.CAP' | translate }}"/>
+            <div class="alert alert-danger"
+                *ngIf="resourceForm.controls.CAP.invalid && (resourceForm.controls.CAP.dirty || resourceForm.controls.CAP.touched)">
+                <div *ngIf="resourceForm.controls.CAP.errors?.['required']">
+                    {{ 'RESOURCE.CAP' | translate }} {{ 'FORM.REQUIRED' | translate }}
+                </div>
+                <div *ngIf="resourceForm.controls.CAP.errors?.['min'] || resourceForm.controls.CAP.errors?.['max']">
+                    {{ 'RESOURCE.CAP' | translate }} {{ 'FORM.RANGE' | translate: {min: MIN, max: MAX} }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group d-flex justify-content-around">
+            <button class="btn btn-primary" type="button" (click)="enableEdit()"
+                *ngIf="!isEditable" translate="FORM.MODIFY"></button>
+
+            <button class="btn btn-success" type="submit" *ngIf="isEditable && resource"
+                translate="FORM.UPDATE"></button>
+            <button class="btn btn-success" type="submit" *ngIf="isEditable && !resource"
+                translate="FORM.ADD"></button>
+
+            <button class="btn btn-danger" type="button" (click)="disableEdit()"
+                *ngIf="isEditable" translate="FORM.CANCEL"></button>
+            <button class="btn btn-danger" type="button" (click)="goBack()"
+                *ngIf="!isEditable" translate="FORM.BACK"></button>
+        </div>
+    </form>
+</div>
