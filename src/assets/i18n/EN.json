@@ -22,7 +22,10 @@
         "WELCOME": "Welcome"
     },
     "LOGIN": {
-        "LOGIN": "Login"
+        "LOGIN": "Login",
+        "ERROR": "Error",
+        "WRONG_CREDENTIALS": "Wrong credentials",
+        "OK": "OK"
     },
     "DASHBOARD": {
         "RESOURCES": "Resources",
@@ -39,5 +42,11 @@
         "BACK": "Go back",
         "REQUIRED": "is required",
         "RANGE": "must be between {{min}} and {{max}}"
+    },
+    "OFFCANVAS": {
+        "LOGOUT_TITLE": "Logout",
+        "LOGOUT_DESCRIPTION": "Are you sure you want to logout?",
+        "LOGOUT_POSITIVE_TEXT": "Yes",
+        "LOGOUT_NEGATIVE_TEXT": "No"
     }
 }

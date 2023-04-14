@@ -1,0 +1,34 @@
+<div class="offcanvas-header">
+    <h5 class="offcanvas-title">{{ offcanvas.title }}</h5>
+    <button
+        type="button"
+        class="btn-close text-reset"
+        aria-label="Close"
+        (click)="activeOffcanvas.dismiss(false)"
+    ></button>
+</div>
+<div class="offcanvas-body">
+    <div class="row mt-2">
+        <div class="col-12">{{ offcanvas.description }}</div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-6">
+            <button
+                [hidden]="!offcanvas.positiveText"
+                type="button"
+                class="btn btn-outline-dark"
+                (click)="activeOffcanvas.close(true)">
+                {{ offcanvas.positiveText }}
+            </button>
+        </div>
+        <div class="col-6">
+            <button
+                [hidden]="!offcanvas.negativeText"
+                type="button"
+                class="btn btn-outline-dark"
+                (click)="activeOffcanvas.close(false)">
+                {{ offcanvas.negativeText }}
+            </button>
+        </div>
+    </div>
+</div>

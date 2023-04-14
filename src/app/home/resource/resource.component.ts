@@ -7,8 +7,8 @@ import { Resource } from 'src/app/shared/models/resource';
 
 @Component({
   selector: 'app-resource-details',
-  templateUrl: './resource-details.component.html',
-  styleUrls: ['./resource-details.component.scss'],
+  templateUrl: './resource.component.html',
+  styleUrls: ['./resource.component.scss'],
   providers: [ResourceStateService]
 })
 export class ResourceDetailsComponent implements OnInit {

@@ -50,7 +50,7 @@ export class ResourceService {
 	private getLastId(): number {
 		const tmp = this.resources.map(r => r.id);
 
-		return Math.max(...tmp);  // spread operator -> splits elements in the array to a list of elements
+		return Math.max(...tmp);
 	}
 
 	private contains(str: string, searchText: string): boolean {

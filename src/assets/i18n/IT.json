@@ -22,7 +22,10 @@
         "WELCOME": "Benvenuto"
     },
     "LOGIN": {
-        "LOGIN": "Login"
+        "LOGIN": "Login",
+        "ERROR": "Errore",
+        "WRONG_CREDENTIALS": "Credenziali errate",
+        "OK": "OK"
     },
     "DASHBOARD": {
         "RESOURCES": "Risorse",
@@ -35,9 +38,15 @@
         "MODIFY": "Modifica",
         "UPDATE": "Aggiorna",
         "ADD": "Aggiungi",
-        "CANCEL": "Cancella",
+        "CANCEL": "Annulla",
         "BACK": "Indietro",
         "REQUIRED": "è obbligatorio",
         "RANGE": "deve essere compreso tra {{min}} e {{max}}"
+    },
+    "OFFCANVAS": {
+        "LOGOUT_TITLE": "Disconnessione",
+        "LOGOUT_DESCRIPTION": "Sei sicuro di volerti disconnettere?",
+        "LOGOUT_POSITIVE_TEXT": "Si",
+        "LOGOUT_NEGATIVE_TEXT": "No"
     }
 }

@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ modal.title }}</h4>
+    <button type="button" class="btn-close" (click)="onClose(false)"></button>
+</div>
+<div class="modal-body">
+    <p>
+        {{ modal.description }}
+    </p>
+</div>
+<div class="modal-footer d-flex justify-content-around">
+    <button
+        [hidden]="!modal.positiveText"
+        type="button"
+        class="btn btn-success"
+        (click)="onClose(true)">
+        {{ modal.positiveText }}
+    </button>
+    <button
+        [hidden]="!modal.negativeText"
+        type="button"
+        class="btn btn-danger"
+        (click)="onClose(false)">
+        {{ modal.negativeText }}
+    </button>
+</div>

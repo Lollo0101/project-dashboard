@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { BaseStateService } from './base.state-service';
 import { UserService } from './user.service';
 import { User } from './shared/models/user';
+import { Modal } from './shared/models/modal';
+import { ModalComponent } from './shared/components/modal/modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserStateService extends BaseStateService<UserState> {
   public constructor(
+    private translate: TranslateService,
+    private modalService: NgbModal,
     private userValidationService: UserService,
     private router: Router
   ) {
@@ -55,8 +61,14 @@ export class UserStateService extends BaseStateService<UserState> {
         this.router.navigate(['home']);
       },
       error: error => {
-        // lauch modal
-        alert('Wrong credentials');
+        const modal: Modal = {
+          title: this.translate.instant('LOGIN.ERROR'),
+          description: this.translate.instant('LOGIN.WRONG_CREDENTIALS'),
+          positiveText: this.translate.instant('LOGIN.OK'),
+          negativeText: undefined
+        }
+
+        this.openModal(ModalComponent, modal)
       }
     });
   }
@@ -64,6 +76,18 @@ export class UserStateService extends BaseStateService<UserState> {
   // SELECTORS
 
   public selectUser = () => this.select(state => state.user);
+
+//-UTILS-----------------------------------------------------------
+
+  private openModal(content: any, modal: Modal): void {
+    const modalRef = this.modalService.open(content, { centered: true });
+
+    modalRef.result.then(
+      result => {}
+    );
+
+    modalRef.componentInstance.modal = modal;
+  }
 }
 
 interface UserState {

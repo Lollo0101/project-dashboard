@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
 import { Resource } from 'src/app/shared/models/resource';
-import { ResourceStateService } from '../../resource-details/resource-state.service';
+import { ResourceStateService } from '../../resource/resource-state.service';
 
 @Component({
   selector: 'app-resource-form',
@@ -89,6 +89,9 @@ export class ResourceFormComponent {
     if(this.resource) {
       this.resourceForm.setValue(this.resource);
       isEditable = false;
+    } else {
+      const nullResource: Resource = { id: -1, name: '', surname: '', address: { street: '', city: '', CAP: 0 } };
+      this.resourceForm.setValue(nullResource);
     }
 
     this.changeEditState(isEditable);
