@@ -1,5 +1,29 @@
 <div class="row mt-3">
-    <div class="col-12 text-center">
-        Grafico qua
+    <div class="col-12 text-center" *ngLet="projects$ | async as projects">
+        <dx-chart
+            id="chart"
+            [dataSource]="projects">
+            <dxi-series
+                argumentField="name"
+                valueField="progress"
+                name="{{ 'PROJECT.PROGRESS' | translate }}"
+                type="bar"
+                color="#ffaa66">
+                <dxo-label [visible]="true">
+                    <dxo-connector [visible]="true"></dxo-connector>
+                </dxo-label>
+            </dxi-series>
+
+            <!--<dxi-series
+                argumentField="name"
+                valueField="resources"
+                name="{{ 'PROJECT.RESOURCES' | translate }}"
+                type="bar"
+                color="green">
+                <dxo-label>
+                    
+                </dxo-label>
+            </dxi-series>-->
+          </dx-chart>
     </div>
 </div>

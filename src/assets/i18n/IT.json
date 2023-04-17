@@ -9,6 +9,7 @@
     },
     "RESOURCE": {
         "RESOURCE": "Risorsa",
+        "RESOURCES": "Risorse",
         "NAME": "Nome",
         "SURNAME": "Cognome",
         "STREET": "Via",
@@ -17,6 +18,7 @@
     },
     "PROJECT": {
         "PROJECT": "Progetto",
+        "PROJECTS": "Progetti",
         "NAME": "Nome progetto",
         "DESCRIPTION": "Descrizione",
         "START_DATE": "Data inizio",
@@ -36,10 +38,6 @@
         "ERROR": "Errore",
         "WRONG_CREDENTIALS": "Credenziali errate",
         "OK": "OK"
-    },
-    "DASHBOARD": {
-        "RESOURCES": "Risorse",
-        "PROJECTS": "Progetti"
     },
     "DETAILS": {
         "DETAILS": "dettagli"
