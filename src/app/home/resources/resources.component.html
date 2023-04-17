@@ -22,7 +22,7 @@
         </dxi-column>
 
         <div *dxTemplate="let resource of 'address'">
-            <p class="employee-notes">
+            <p class="address">
                 {{ resource.data.address.street + ", " + resource.data.address.city + ", " + resource.data.address.CAP }}
             </p>
         </div>
@@ -44,5 +44,4 @@
 
         <dxo-selection mode="single"></dxo-selection>
     </dx-data-grid>
-
 </div>

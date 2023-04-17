@@ -1,0 +1,50 @@
+<dx-data-grid class="m-3"
+    id="gridContainer"
+    [dataSource]="tmp_resources"
+    keyExpr="id"
+    [showBorders]="true"
+    (onRowRemoving)="deleteResource($event)"
+    (onRowInserting)="addResource(resourceSelectBox.value)"
+    *ngLet="isEditable$ | async as isEditable">
+
+    <dxi-column
+        dataField="name">
+    </dxi-column>
+
+    <dxi-column
+        dataField="surname">
+
+    </dxi-column>
+
+    <dxi-column
+        dataField="address"
+        cellTemplate="address">
+    </dxi-column>
+
+    <div *dxTemplate="let resource of 'address'">
+        <p class="address">
+            {{ resource.data.address.street + ", " + resource.data.address.city + ", " + resource.data.address.CAP }}
+        </p>
+    </div>
+
+    <dxo-editing
+        mode="popup"
+        [allowDeleting]="isEditable == null? false : isEditable"
+        [useIcons]="true">
+    </dxo-editing>
+    
+    <dxo-editing
+        mode="popup"
+        [allowAdding]="isEditable == null? false : isEditable">
+        <dxo-form>
+            <dxi-item itemType="group" caption="{{ 'FORM.SELECT_RESOURCE' | translate }}">
+                <dx-select-box
+                    #resourceSelectBox
+                    [dataSource]="getResources() | async" [displayExpr]="displayExpr">
+                </dx-select-box>
+            </dxi-item>
+        </dxo-form>
+    </dxo-editing>
+
+    <dxo-selection mode="single"></dxo-selection>
+</dx-data-grid>

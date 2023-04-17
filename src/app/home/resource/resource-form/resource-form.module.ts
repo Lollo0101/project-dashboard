@@ -1,20 +1,14 @@
 import { NgModule } from '@angular/core';
-import { NgLetModule } from 'ng-let';
-
-import { ResourceFormRoutingModule } from './resource-form-routing.module';
-import { ResourceFormComponent } from './resource-form.component';
-import { HomeSharedModule } from '../home-shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { ResourceFormComponent } from './resource-form.component';
+import { HomeSharedModule } from '../../shared/home-shared.module';
 
 @NgModule({
   imports: [
     // MODULES
     HomeSharedModule,
-    NgLetModule,
     ReactiveFormsModule,
-
-    // ROUTING
-    ResourceFormRoutingModule
   ],
   declarations: [
     ResourceFormComponent

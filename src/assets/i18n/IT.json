@@ -15,6 +15,16 @@
         "CITY": "Città",
         "CAP": "CAP"
     },
+    "PROJECT": {
+        "PROJECT": "Progetto",
+        "NAME": "Nome progetto",
+        "DESCRIPTION": "Descrizione",
+        "START_DATE": "Data inizio",
+        "END_DATE": "Data fine",
+        "PROGRESS": "Avanzamento",
+        "RESOURCES": "Risorse",
+        "IN_PROGRESS": "In corso..."
+    },
     "TOP-BAR": {
         "HOME": "Home",
         "LOGOUT": "Disconnettiti",

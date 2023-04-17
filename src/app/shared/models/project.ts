@@ -5,7 +5,7 @@ export interface Project {
     name: string,
     description: string,
     startDate: Date,
-    endDate: Date | undefined,
+    endDate: Date | null,
     progress: number,
     resources: Resource[]
 }

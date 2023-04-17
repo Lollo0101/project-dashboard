@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
 import { Resource } from 'src/app/shared/models/resource';
-import { ResourceStateService } from '../../resource/resource-state.service';
+import { ResourceStateService } from '../resource-state.service';
 
 @Component({
   selector: 'app-resource-form',

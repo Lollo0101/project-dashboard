@@ -5,7 +5,7 @@
 
         <div class="form-group">
             <label for="name" translate="RESOURCE.NAME"></label>
-            <input class="form-control" formControlName="name"
+            <input class="form-control" formControlName="name" name="name"
                     placeholder="{{ 'RESOURCE.NAME' | translate }}"/>
             <div class="alert alert-danger"
                 *ngIf="resourceForm.controls.name.invalid &&
@@ -18,8 +18,8 @@
         </div>
 
         <div class="form-group">
-            <label for="name" translate="RESOURCE.SURNAME"></label>
-            <input class="form-control" formControlName="surname"
+            <label for="surname" translate="RESOURCE.SURNAME"></label>
+            <input class="form-control" formControlName="surname" name="surname"
                 placeholder="{{ 'RESOURCE.SURNAME' | translate }}"/>
             <div class="alert alert-danger"
                 *ngIf="resourceForm.controls.surname.invalid &&
@@ -33,8 +33,8 @@
 
         <div formGroupName="address">
             <div class="form-group">
-                <label for="name" translate="RESOURCE.STREET"></label>
-                <input class="form-control" formControlName="street"
+                <label for="street" translate="RESOURCE.STREET"></label>
+                <input class="form-control" formControlName="street" name="street"
                     placeholder="{{ 'RESOURCE.STREET' | translate }}"/>
                 <div class="alert alert-danger"
                     *ngIf="resourceForm.controls.address.controls.street.invalid &&
@@ -47,8 +47,8 @@
             </div>
 
             <div class="form-group">
-                <label for="name" translate="RESOURCE.CITY"></label>
-                <input class="form-control" formControlName="city"
+                <label for="city" translate="RESOURCE.CITY"></label>
+                <input class="form-control" formControlName="city" name="city"
                     placeholder="{{ 'RESOURCE.CITY' | translate }}"/>
                 <div class="alert alert-danger"
                     *ngIf="resourceForm.controls.address.controls.city.invalid &&
@@ -61,8 +61,8 @@
             </div>
 
             <div class="form-group">
-                <label for="name" translate="RESOURCE.CAP"></label>
-                <input class="form-control" type="number" formControlName="CAP"
+                <label for="cap" translate="RESOURCE.CAP"></label>
+                <input class="form-control" type="number" formControlName="CAP" name="cap"
                     placeholder="{{ 'RESOURCE.CAP' | translate }}"/>
                 <div class="alert alert-danger"
                     *ngIf="resourceForm.controls.address.controls.CAP.invalid &&

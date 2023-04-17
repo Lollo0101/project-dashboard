@@ -15,6 +15,16 @@
         "CITY": "City",
         "CAP": "Zip code"
     },
+    "PROJECT": {
+        "PROJECT": "Project",
+        "NAME": "Project name",
+        "DESCRIPTION": "Description",
+        "START_DATE": "Start date",
+        "END_DATE": "End date",
+        "PROGRESS": "Progress",
+        "RESOURCES": "Resources",
+        "IN_PROGRESS": "In progress..."
+    },
     "TOP-BAR": {
         "HOME": "Home",
         "LOGOUT": "Logout",

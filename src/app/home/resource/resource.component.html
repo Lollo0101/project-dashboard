@@ -1,12 +1,16 @@
 <div class="container" *ngLet="resource$ | async as resource">
-    <div class="row mt-3" *ngIf="resource">
-        <div class="col-1">
-            <i class="fa-solid fa-arrow-left" (click)="goBack()"></i>
+    <div *ngIf="resource">
+        <div class="row mt-3">
+            <div class="col-1">
+                <i class="fa-solid fa-arrow-left" (click)="goBack()"></i>
+            </div>
+            <div class="col-auto">
+                <h3>{{ resource.name + " " + resource.surname }} {{ 'DETAILS.DETAILS' | translate }}</h3>
+            </div>
         </div>
-        <div class="col-auto">
-            <h3>{{ resource.name + " " + resource.surname }} {{ 'DETAILS.DETAILS' | translate }}</h3>
-        </div>
+        
+        <app-resource-form [resource]="resource" (resourceUpdated)="updateResource($event)" (resourceAdded)="addResource($event)"></app-resource-form>
     </div>
 
-    <app-resource-form [resource]="resource" (resourceUpdated)="updateResource($event)" (resourceAdded)="addResource($event)"></app-resource-form>
+    <app-resource-form *ngIf="!resource" (resourceUpdated)="updateResource($event)" (resourceAdded)="addResource($event)"></app-resource-form>
 </div>

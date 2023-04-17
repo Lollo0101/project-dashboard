@@ -1,1 +1,70 @@
-<p>projects works!</p>
+<div class="container">
+    <dx-data-grid class="m-3"
+        id="gridContainer"
+        [dataSource]="projects$ | async"
+        keyExpr="id"
+        [showBorders]="true"
+        [showRowLines]="true"
+        [allowColumnResizing]="true"
+        (onRowRemoving)="deleteProject($event)"
+        (onSelectionChanged)="selectProject($event)">
+
+        <dxi-column
+            dataField="name">
+        </dxi-column>
+
+        <dxi-column
+            dataField="description">
+        </dxi-column>
+
+        <dxi-column
+            dataType="date"
+            format="dd/MM/yyyy hh:mm"
+            dataField="startDate">
+        </dxi-column>
+
+        <dxi-column
+            dataField="endDate"
+            cellTemplate="endDate">
+        </dxi-column>
+
+        <dxi-column
+            dataField="progress">
+        </dxi-column>
+
+        <dxi-column
+            dataField="resources"
+            cellTemplate="resources">
+        </dxi-column>
+
+        <div *dxTemplate="let project of 'endDate'">
+            <p class="endDate">
+                <span *ngIf="project.data.endDate">{{ project.data.endDate | date: 'dd/MM/yyyy hh:mm' }}</span>
+                <span *ngIf="!project.data.endDate" translate="PROJECT.IN_PROGRESS"></span>
+            </p>
+        </div>
+
+        <div *dxTemplate="let project of 'resources'">
+            <p class="resource" *ngFor="let resource of project.data.resources">
+                {{ resource.name + " " + resource.surname }}
+            </p>
+        </div>
+
+        <dxo-toolbar>
+            <dxi-item>
+                <dx-button
+                    routerLink="/home/project">
+                    <i class="fa-solid fa-add"></i>{{ 'FORM.ADD' | translate }} {{ 'PROJECT.PROJECT' | translate }}
+                </dx-button>
+            </dxi-item>
+        </dxo-toolbar>
+
+        <dxo-editing
+            mode="popup"
+            [allowDeleting]="true"
+            [useIcons]="true">
+        </dxo-editing>
+
+        <dxo-selection mode="single"></dxo-selection>
+    </dx-data-grid>
+</div>

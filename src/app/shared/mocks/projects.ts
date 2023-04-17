@@ -5,8 +5,8 @@ export const PROJECTS: Project[] = [
         id: 1,
         name: 'Egiujwa',
         description: 'Jorge Flores, Christmas Island, Tiwizi',
-        startDate: new Date('27/05/2022 15:19:40'),
-        endDate: undefined,
+        startDate: new Date('2023-05-17T02:18:31+02:00'),
+        endDate: new Date('2023-05-12T11:43:01+02:00'),
         progress: 100,
         resources: [
             {
@@ -49,13 +49,14 @@ export const PROJECTS: Project[] = [
                     CAP: 66344
                 }
             }
-        ] },
+        ]
+    },
     {
         id: 2,
         name: 'Kifopuoc',
         description: 'Isabella Kim, American Samoa, Rogmugwed',
-        startDate: new Date('26/09/2022 17:31:08'),
-        endDate: new Date('15/04/2023 22:45:12'),
+        startDate: new Date('2023-03-29T08:34:55+02:00'),
+        endDate: null,
         progress: 44,
         resources: [
             {
@@ -108,13 +109,14 @@ export const PROJECTS: Project[] = [
                     CAP: 40093
                 }
             }
-        ] },
+        ]
+    },
     {
         id: 3,
         name: 'Ijdoda',
         description: 'Randy Bradley, Iran, Dibpafef',
-        startDate: new Date('24/09/2022 22:49:55'),
-        endDate: new Date('20/03/2023 06:56:58'),
+        startDate: new Date('2023-01-28T19:10:41+01:00'),
+        endDate: null,
         progress: 17,
         resources: [
             {
@@ -227,13 +229,14 @@ export const PROJECTS: Project[] = [
                     CAP: 11317
                 }
             }
-        ] },
+        ]
+    },
     {
         id: 4,
         name: 'Gohhalfu',
         description: 'Mathilda Valdez, Falkland Islands, Holreza',
-        startDate: new Date('02/06/2022 10:41:25'),
-        endDate: new Date('12/02/2023 04:28:02') ,
+        startDate: new Date('2023-12-02T03:54:43+01:00'),
+        endDate: null,
         progress: 75,
         resources: [
             {
@@ -306,13 +309,14 @@ export const PROJECTS: Project[] = [
                     CAP: 21552
                 }
             }
-        ] },
+        ]
+    },
     {
         id: 5,
         name: 'Ekwokfar',
         description: 'Gilbert Lynch, Bolivia, Wikpabbe',
-        startDate: new Date('02/11/2022 06:19:41'),
-        endDate: undefined,
+        startDate: new Date('2023-12-13T16:19:59+01:00'),
+        endDate: new Date('2023-11-15T11:24:54+01:00'),
         progress: 100,
         resources: [
             {
@@ -335,13 +339,14 @@ export const PROJECTS: Project[] = [
                     CAP: 78865
                 }
             }
-        ] },
+        ]
+    },
     {
         id: 6,
         name: 'Bardefuj',
         description: 'Mina Maxwell, St. Lucia, Ganenomab',
-        startDate: new Date('10/04/2022 01:11:56'),
-        endDate: undefined,
+        startDate: new Date('2023-08-18T23:09:37+02:00'),
+        endDate: null,
         progress: 99,
         resources: [
             {
@@ -354,13 +359,14 @@ export const PROJECTS: Project[] = [
                     CAP: 21552
                 }
             }
-        ] },
+        ]
+    },
     {
         id: 7,
         name: 'Rorevub',
         description: 'Dominic Andrews, Afghanistan, Ruharise',
-        startDate: new Date('19/12/2022 17:09:05'),
-        endDate: new Date('21/02/2023 17:09:44') ,
+        startDate: new Date('2023-04-18T18:24:50+02:00'),
+        endDate: null,
         progress: 67,
         resources: [
             {
@@ -433,13 +439,14 @@ export const PROJECTS: Project[] = [
                     CAP: 26120
                 }
             },
-        ] },
+        ]
+    },
     {
         id: 8,
         name: 'Inugoota',
         description: 'Ernest Lamb, Jamaica, Fahomdi',
-        startDate: new Date('04/07/2022 10:34:44'),
-        endDate: undefined,
+        startDate: new Date('2023-09-10T10:09:57+02:00'),
+        endDate: new Date('2023-08-04T21:52:30+02:00'),
         progress: 100,
         resources: [
             {
@@ -472,24 +479,46 @@ export const PROJECTS: Project[] = [
                     CAP: 64204
                 }
             }
-        ] },
+        ]
+    },
     {
         id: 9,
         name: 'Folojam',
         description: 'Nannie Lane, Marshall Islands, Celnimno',
-        startDate: new Date('31/07/2022 08:29:58'),
-        endDate: new Date('04/03/2023 12:18:47') ,
+        startDate: new Date('2023-02-09T15:26:57+01:00'),
+        endDate: null,
         progress: 7,
         resources: [
-        ] },
+            {
+                id: 8,
+                name: 'Owen',
+                surname: 'French',
+                address: {
+                    street: '1158 Jenaj Key',
+                    city: 'Vuwpahunu',
+                    CAP: 57013
+                }
+            }
+        ]
+    },
     {
         id: 10,
         name: 'Hiaknor',
         description: 'Tom Dunn, Lebanon, Kevuro',
-        startDate: new Date('16/04/2022 05:49:44'),
-        endDate: undefined,
+        startDate: new Date('2023-01-14T12:16:11+01:00'),
+        endDate: new Date('2023-01-06T03:32:48+01:00'),
         progress: 100,
         resources: [
+            {
+                id: 12,
+                name: 'Barbara',
+                surname: 'Watson',
+                address: {
+                    street: '723 Aztoj Court',
+                    city: 'Huwagimef',
+                    CAP: 26120
+                }
+            }
         ]
     },
 ]

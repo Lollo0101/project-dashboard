@@ -23,7 +23,7 @@ export class ResourcesComponent implements OnInit {
     const resource = event.selectedRowsData[0];
 
     if(resource) {
-      this.router.navigate(['home', 'resource-details', resource.id]);
+      this.router.navigate(['home', 'resource', resource.id]);
     }
   }
 

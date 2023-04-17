@@ -6,8 +6,8 @@
                 <label for="email" class="form-label" translate="USER.EMAIL"></label>
                 <input class="form-control" type="email" formControlName="email"
                         placeholder="{{ 'USER.EMAIL' | translate }}"/>
-                        <div class="alert alert-danger" *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">
-                            <div *ngIf="loginForm.controls.email.errors?.['required']">
+                <div class="alert alert-danger" *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">
+                    <div *ngIf="loginForm.controls.email.errors?.['required']">
                         {{ 'USER.EMAIL' | translate }} {{ 'FORM.REQUIRED' | translate }}
                     </div>
                 </div>

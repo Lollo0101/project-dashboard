@@ -27,7 +27,6 @@ export class ResourceStateService extends BaseStateService<ResourceState> {
   }
 
   public dispatchGetResource(id: number): void {
-    console.log(id)
       this.resourceService.getResource(id).subscribe(res => {
         this.updateState(state => ({
           ...state,

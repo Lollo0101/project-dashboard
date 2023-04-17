@@ -1,0 +1,96 @@
+<div class="container" *ngLet="selectedProject$ | async as selectedProject">
+    <form [formGroup]="projectForm" *ngLet="isEditable$ | async as isEditable"
+        (ngSubmit)="onSubmit()">
+        <input type="hidden" name="id" formControlName="id"/>
+
+        <div class="form-group">
+            <label for="name" translate="PROJECT.NAME"></label>
+            <input class="form-control" formControlName="name" name="name"
+                    placeholder="{{ 'PROJECT.NAME' | translate }}"/>
+            <div class="alert alert-danger"
+                *ngIf="projectForm.controls.name.invalid &&
+                       (projectForm.controls.name.dirty ||
+                        projectForm.controls.name.touched)">
+                <div *ngIf="projectForm.controls.name.errors?.['required']">
+                    {{ 'PROJECT.NAME' | translate }} {{ 'FORM.REQUIRED' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description" translate="PROJECT.DESCRIPTION"></label>
+            <textarea class="form-control" formControlName="description" name="description"
+                placeholder="{{ 'PROJECT.DESCRIPTION' | translate }}">
+            </textarea>
+            <div class="alert alert-danger"
+                *ngIf="projectForm.controls.description.invalid &&
+                       (projectForm.controls.description.dirty ||
+                        projectForm.controls.description.touched)">
+                <div *ngIf="projectForm.controls.description.errors?.['required']">
+                    {{ 'PROJECT.DESCRIPTION' | translate }} {{ 'FORM.REQUIRED' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="startDate" translate="PROJECT.START_DATE"></label>
+            <input class="form-control" formControlName="startDate" name="startDate"
+                type="date" placeholder="{{ 'PROJECT.START_DATE' | translate }}"/>
+            <div class="alert alert-danger"
+                *ngIf="projectForm.controls.startDate.invalid &&
+                       (projectForm.controls.startDate.dirty ||
+                        projectForm.controls.startDate.touched)">
+                <div *ngIf="projectForm.controls.startDate.errors?.['required']">
+                    {{ 'PROJECT.START_DATE' | translate }} {{ 'FORM.REQUIRED' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="endDate" translate="PROJECT.END_DATE"></label>
+            <input class="form-control" formControlName="endDate" name="endDate"
+                type="date" placeholder="{{ 'PROJECT.END_DATE' | translate }}"/>
+            <div class="alert alert-danger"
+                *ngIf="projectForm.controls.endDate.invalid &&
+                       (projectForm.controls.endDate.dirty ||
+                        projectForm.controls.endDate.touched)">
+                <div *ngIf="projectForm.controls.endDate.errors?.['required']">
+                    {{ 'PROJECT.END_DATE' | translate }} {{ 'FORM.REQUIRED' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="progress" translate="PROJECT.PROGRESS"></label>:
+            <output id="progress_label"></output>
+            <input class="form-range" formControlName="progress" name="progress" id="progress_slider"
+                type="range" placeholder="{{ 'PROJECT.PROGRESS' | translate }}"
+                min="0" max="100" oninput="document.getElementById('progress_label').value = this.value"/>
+            <div class="alert alert-danger"
+                *ngIf="projectForm.controls.progress.invalid &&
+                       (projectForm.controls.progress.dirty ||
+                        projectForm.controls.progress.touched)">
+                <div *ngIf="projectForm.controls.progress.errors?.['required']">
+                    {{ 'PROJECT.PROGRESS' | translate }} {{ 'FORM.REQUIRED' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <app-project-resources formControlName="resources"></app-project-resources>
+
+        <div class="form-group d-flex justify-content-around">
+            <button class="btn btn-primary" type="button" (click)="enableEdit()"
+                *ngIf="!isEditable" translate="FORM.MODIFY"></button>
+
+            <button class="btn btn-success" type="submit" *ngIf="isEditable && selectedProject"
+                translate="FORM.UPDATE" [disabled]="projectForm.invalid"></button>
+            <button class="btn btn-success" type="submit" *ngIf="isEditable && !selectedProject"
+                translate="FORM.ADD" [disabled]="projectForm.invalid"></button>
+
+            <button class="btn btn-danger" type="button" (click)="disableEdit()"
+                *ngIf="isEditable" translate="FORM.CANCEL"></button>
+            <button class="btn btn-danger" type="button" (click)="goBack()"
+                *ngIf="!isEditable" translate="FORM.BACK"></button>
+        </div>
+    </form>
+</div>

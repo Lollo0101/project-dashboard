@@ -11,7 +11,6 @@ import { NgLetModule } from 'ng-let';
     // MODULES
     SharedModule,
     RouterModule,
-    NgLetModule,
 
     // ROUTING
     HomeRoutingModule
