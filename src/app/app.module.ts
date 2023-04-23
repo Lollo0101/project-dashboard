@@ -7,6 +7,8 @@ import { TopBarModule } from './shared/components/top-bar/top-bar.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TestComponent } from './test/test.component';
+import { TestDirective } from './test/test.directive';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -33,7 +35,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     TopBarModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    TestComponent,
+    TestDirective
   ],
   providers: [],
   bootstrap: [AppComponent]

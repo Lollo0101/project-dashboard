@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+
 import { RESOURCES } from 'src/app/shared/mocks/resources';
 import { Resource } from 'src/app/shared/models/resource';
 

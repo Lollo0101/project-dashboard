@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { BaseStateService } from 'src/app/base.state-service';
+import { BaseStateService } from 'src/app/shared/services/base.state-service';
 import { Resource } from 'src/app/shared/models/resource';
 import { ResourceService } from '../../resource.service';
 

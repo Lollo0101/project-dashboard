@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-
-import { PROJECTS } from './shared/mocks/projects';
-import { Project } from './shared/models/project';
 import { Observable, of } from 'rxjs';
+
+import { PROJECTS } from 'src/app/shared/mocks/projects';
+import { Project } from 'src/app/shared/models/project';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class ProjectService {
   }
 
   public addProject(project: Project): Observable<number> {
-    project.id = this.getLastId() + 1
+    project.id = this.getLastId() + 1;
 
     this.projects.push(project);
 

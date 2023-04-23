@@ -1,16 +1,16 @@
 <div class="container" *ngLet="project$ | async as project">
-    <div *ngIf="project">
-        <div class="row mt-3">
-            <div class="col-1">
-                <i class="fa-solid fa-arrow-left" (click)="goBack()"></i>
-            </div>
-            <div class="col-auto">
-                <h3>{{ project.name }} {{ 'DETAILS.DETAILS' | translate }}</h3>
-            </div>
+    <div class="row mt-3" *ngIf="project">
+        <div class="col-1">
+            <i class="fa-solid fa-arrow-left" (click)="goBack()"></i>
         </div>
-        
-        <app-project-form></app-project-form>
+        <div class="col-auto">
+            <h3>{{ project.name }} {{ 'DETAILS.DETAILS' | translate }}</h3>
+        </div>
     </div>
-
-    <app-project-form *ngIf="!project"></app-project-form>
+    
+    <div class="row mt-3">
+        <div class="col">
+            <app-project-form></app-project-form>
+        </div>
+    </div>
 </div>

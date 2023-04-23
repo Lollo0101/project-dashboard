@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { OffCanvas } from '../../models/offcanvas';
 import { NgbActiveOffcanvas } from '@ng-bootstrap/ng-bootstrap';
+
+import { OffCanvas } from '../../models/offcanvas';
 
 @Component({
   selector: 'app-offcanvas',
@@ -10,7 +11,9 @@ import { NgbActiveOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 export class OffcanvasComponent {
   public offcanvas!: OffCanvas;
 
-  constructor(public activeOffcanvas: NgbActiveOffcanvas) {}
+  constructor(
+    public activeOffcanvas: NgbActiveOffcanvas
+  ) {}
 
   public onClose(result: boolean): void {
     this.activeOffcanvas.close(result);

@@ -6,9 +6,6 @@ import { HomeSharedModule } from '../shared/home-shared.module';
 import { ProjectFormModule } from './project-form/project-form.module';
 
 @NgModule({
-  declarations: [
-    ProjectComponent
-  ],
   imports: [
     // MODULES
     HomeSharedModule,
@@ -18,6 +15,9 @@ import { ProjectFormModule } from './project-form/project-form.module';
 
     // COMPONENT
     ProjectFormModule
-  ]
+  ],
+  declarations: [
+    ProjectComponent
+  ],
 })
 export class ProjectModule { }

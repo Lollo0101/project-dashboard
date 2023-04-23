@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { UserStateService } from 'src/app/user-state.service';
-import { OffCanvas } from '../../models/offcanvas';
-import { OffcanvasComponent } from '../offcanvas/offcanvas.component';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
+
+import { UserStateService } from 'src/app/user-state.service';
+import { OffCanvas } from 'src/app/shared/models/offcanvas';
+import { OffcanvasComponent } from '../offcanvas/offcanvas.component';
 
 @Component({
   selector: 'app-top-bar',
@@ -16,14 +17,14 @@ export class TopBarComponent {
 
   public languages = ['it', 'en'];
 
-  public user$ = this.userStateService.selectUser();
+  public user$ = this.userStateSvc.selectUser();
 
   public constructor(
     private translate: TranslateService,
-    private userStateService: UserStateService,
+    private userStateSvc: UserStateService,
     private router: Router,
-    private offcanvasService: NgbOffcanvas
-    ) {}
+    private offcanvasSvc: NgbOffcanvas
+  ) {}
 
   public changeLang(lang: string): void {
     this.translate.use(lang.toLowerCase()).subscribe();
@@ -37,22 +38,20 @@ export class TopBarComponent {
       negativeText: this.translate.instant('OFFCANVAS.LOGOUT_NEGATIVE_TEXT')
     };
 
-    console.log(offcanvas)
-
     this.openModal(OffcanvasComponent, offcanvas);
   }
 
 //-UTILS------------------------------------------------------------
 
   private openModal(content: any, offcanvas: OffCanvas): void {
-    const offcanvasRef = this.offcanvasService.open(content);
+    const offcanvasRef = this.offcanvasSvc.open(content);
 
     offcanvasRef.componentInstance.offcanvas = offcanvas;
 
     offcanvasRef.result.then(
       result => {
         if(result) {
-          this.userStateService.dispatchLogout();
+          this.userStateSvc.dispatchLogout();
           this.router.navigate(['login']);
         }
       }

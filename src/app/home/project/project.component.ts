@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common'
-import { Project } from 'src/app/shared/models/project';
+import { Location } from '@angular/common';
+
 import { ProjectStateService } from './project-state.service';
 
 @Component({
@@ -20,6 +20,9 @@ export class ProjectComponent {
   ) {}
 
   public goBack(): void {
+    // dispatch inside state service
+    // use the back() only if you can reach the same component from more components
+    // use the router instead
     this.location.back();
   }
 

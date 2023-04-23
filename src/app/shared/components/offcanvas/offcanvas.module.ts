@@ -13,5 +13,8 @@ import { OffcanvasComponent } from './offcanvas.component';
   declarations: [
     OffcanvasComponent
   ],
+  exports: [
+    OffcanvasComponent
+  ]
 })
 export class OffcanvasModule { }

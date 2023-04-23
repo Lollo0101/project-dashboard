@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { ProjectsStateService } from './projects-state.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class ProjectsComponent {
     const project = event.selectedRowsData[0];
 
     if(project) {
+      // usually inside the state-service
       this.router.navigate(['home', 'project', project.id]);
     }
   }

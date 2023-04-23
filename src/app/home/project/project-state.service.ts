@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Location } from '@angular/common';
 
-import { BaseStateService } from 'src/app/base.state-service';
-import { ProjectService } from 'src/app/project.service';
+import { BaseStateService } from 'src/app/shared/services/base.state-service';
+import { ProjectService } from 'src/app/core/services/project.service';
 import { Project } from 'src/app/shared/models/project';
+import { Resource } from 'src/app/shared/models/resource';
+
+interface ProjectState {
+  isEditable: boolean;
+  selectedProject: Project | undefined;
+  resources: Resource[]
+}
 
 @Injectable()
 export class ProjectStateService extends BaseStateService<ProjectState> {
   constructor(
-    private projectService: ProjectService
+    private projectSvc: ProjectService,
+    private location: Location
   ) {
     super();
   }
@@ -15,7 +24,8 @@ export class ProjectStateService extends BaseStateService<ProjectState> {
   protected override get initalState(): ProjectState {
     return {
       selectedProject: undefined,
-      isEditable: true
+      isEditable: true,
+      resources: []
     };
   }
 
@@ -29,7 +39,7 @@ export class ProjectStateService extends BaseStateService<ProjectState> {
   }
 
   public dispatchGetProject(id: number): void {
-      this.projectService.getProject(id).subscribe(res => {
+      this.projectSvc.getProject(id).subscribe(res => {
         this.updateState(state => ({
           ...state,
           selectedProject: res
@@ -38,11 +48,14 @@ export class ProjectStateService extends BaseStateService<ProjectState> {
   }
 
   public dispatchAddProject(project: Project): void {
-    this.projectService.addProject(project);
+    this.projectSvc.addProject(project).subscribe({
+      next: res => this.goBack(),
+      error: error => console.log("ERROR: " + project)
+    });
   }
 
   public dispatchUpdateProject(project: Project): void {
-    this.projectService.updateProject(project);
+    this.projectSvc.updateProject(project).subscribe();
   }
 
   // SELECTORS
@@ -50,9 +63,10 @@ export class ProjectStateService extends BaseStateService<ProjectState> {
   public selectSelectedProject = () => this.select(state => state.selectedProject);
 
   public selectIsEditable = () => this.select(state => state.isEditable);
-}
 
-interface ProjectState {
-  isEditable: boolean,
-  selectedProject: Project | undefined
+//-UTILS-----------------------------------------------------------------------------
+
+  private goBack(): void {
+    this.location.back();
+  }
 }

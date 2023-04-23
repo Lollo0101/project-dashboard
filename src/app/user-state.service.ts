@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { BaseStateService } from './base.state-service';
-import { UserService } from './user.service';
+import { BaseStateService } from './shared/services/base.state-service';
+import { UserService } from './core/services/user.service';
 import { User } from './shared/models/user';
 import { Modal } from './shared/models/modal';
 import { ModalComponent } from './shared/components/modal/modal.component';

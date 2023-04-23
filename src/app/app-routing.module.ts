@@ -1,6 +1,7 @@
 import { NgModule, inject } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { Observable, map, of, tap } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
+
 import { UserStateService } from './user-state.service';
 
 export const canActivate = (): Observable<boolean> => {
@@ -11,8 +12,8 @@ export const canActivate = (): Observable<boolean> => {
 
   return filter.selectUser().pipe(
     map(user => !!user),
-    tap(res => {
-      if(!res) {
+    tap(isLoggedIn => {
+      if(!isLoggedIn) {
         router.navigate(['login']);
       }
     })

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgbActiveModal, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Modal } from '../../models/modal';
 
@@ -10,7 +10,6 @@ import { Modal } from '../../models/modal';
 })
 export class ModalComponent {
   public modal!: Modal;
-  @Output() confirm: EventEmitter<any> = new EventEmitter();
 
 	public constructor(
     public activeModal: NgbActiveModal

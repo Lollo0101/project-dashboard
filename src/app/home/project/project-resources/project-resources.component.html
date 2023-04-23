@@ -4,8 +4,9 @@
     keyExpr="id"
     [showBorders]="true"
     (onRowRemoving)="deleteResource($event)"
-    (onRowInserting)="addResource(resourceSelectBox.value)"
-    *ngLet="isEditable$ | async as isEditable">
+    (onRowInserting)="addResource($event, resourceSelectBox.value)"
+    (onRowInserted)="resourceAdded()"
+    (onRowRemoved)="resourceDeleted()">
 
     <dxi-column
         dataField="name">
@@ -13,7 +14,6 @@
 
     <dxi-column
         dataField="surname">
-
     </dxi-column>
 
     <dxi-column
